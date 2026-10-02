@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'"
+    />
+    <title>RAEL / Trace, signal, failure</title>
+    <style>
+      /* EXPLORER_STYLE */
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Skip to experiment</a>
+    <div id="app">
+      <h1>RAEL explorer template</h1>
+      <p>
+        This source template is populated when you run an experiment. Open the
+        generated <code>results/&lt;experiment-id&gt;/report.html</code>, or run
+        <code>agentlab serve &lt;experiment-id&gt;</code>.
+      </p>
+    </div>
+    <noscript
+      >This portable explorer needs JavaScript. Read result.json or use agentlab
+      inspect to inspect the same data.</noscript
+    >
+    <script type="application/json" id="experiment-data">
+      EXPERIMENT_DATA
+    </script>
+    <script>
+      /* EXPLORER_SCRIPT */
+    </script>
+  </body>
+</html>

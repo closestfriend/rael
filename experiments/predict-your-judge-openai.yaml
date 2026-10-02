@@ -1,0 +1,35 @@
+name: predict-your-judge-openai
+tasks: ../tasks/synthetic.json
+agent:
+  provider: openai
+  model: gpt-4.1-mini
+  api_key_env: OPENAI_API_KEY
+  base_url: https://api.openai.com/v1
+  base_url_env: AGENTLAB_BASE_URL
+  max_output_tokens: 1200
+  max_retries: 1
+# Omitted evaluator model inherits the agent model. These are independent calls,
+# not independent model families. Set model per evaluator to diversify the panel.
+evaluators:
+  - id: factual
+    kind: rubric
+    version: "factual-v1"
+    threshold: 0.7
+    rubric: Assess factual correctness and support from the supplied evidence. Concise answers are acceptable.
+  - id: instruction
+    kind: rubric
+    version: "instruction-v1"
+    threshold: 0.7
+    rubric: Assess correctness and exact instruction following, including output formatting and required tools.
+  - id: exposition
+    kind: rubric
+    version: "exposition-v1"
+    threshold: 0.7
+    rubric: Prefer a detailed explanation that justifies the answer. Penalize unsupported brevity. This deliberately conflicts with terse tasks.
+intervention: feedback
+seeds: [7]
+repetitions: 1
+max_tool_rounds: 4
+metadata:
+  design: Paired before/after, no untreated control
+  pricing: Unknown unless per-million-token rates are configured

@@ -1,0 +1,4 @@
+include .env.example
+recursive-include experiments *.yaml
+recursive-include tasks *.json
+recursive-include docs *.md
