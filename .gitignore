@@ -12,3 +12,7 @@ dist/
 results/*
 !results/.gitkeep
 .DS_Store
+CLAUDE.md
+AGENTS.md
+.claude/
+.env.local
